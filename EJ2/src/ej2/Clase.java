@@ -79,7 +79,6 @@ public class Clase extends JFrame implements ActionListener{
     }
 
     public void generarTeclado(){
-        char c = '#';
         for(int i = 0;i < 12;i++){
             JButton b = new JButton();
             if(i > 8){
