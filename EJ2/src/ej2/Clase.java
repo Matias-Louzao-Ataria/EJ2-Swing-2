@@ -113,7 +113,7 @@ public class Clase extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        if(arg0.getSource() == btnreset){
+        if(arg0.getSource() == btnreset || arg0.getSource() == reset){
             reset();
         }else if(arg0.getSource() == this.grabar){
             try(PrintWriter escritor = new PrintWriter(new FileWriter(archivonum,true))){
@@ -133,8 +133,6 @@ public class Clase extends JFrame implements ActionListener{
             }
         }else if(arg0.getSource() == acerca){
             JOptionPane.showMessageDialog(null, "Ejercicio 2 del boletín de Swing parte 2.\nAutor:Matias Louzao Ataria. Alumno del colegio vivas de primer año de DAM.\n Los menús hacen crecer el código muy rápido.");
-        }else if(arg0.getSource() == reset){
-            reset();
         }else if(arg0.getSource() == salir){
             this.dispose();
         }
