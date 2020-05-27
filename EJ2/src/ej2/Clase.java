@@ -117,7 +117,7 @@ public class Clase extends JFrame implements ActionListener{
             reset();
         }else if(arg0.getSource() == this.grabar){
             try(PrintWriter escritor = new PrintWriter(new FileWriter(archivonum,true))){
-                escritor.append(txf.getText());
+                escritor.append(txf.getText()+"\n");
             }catch(IOException | SecurityException e){
                 JOptionPane.showMessageDialog(null,"Error de acceso al archivo!");
             }
