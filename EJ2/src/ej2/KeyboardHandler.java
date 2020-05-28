@@ -16,7 +16,7 @@ public class KeyboardHandler extends KeyAdapter{
     @Override
     public void keyTyped(KeyEvent e) {
         if((Character.getNumericValue(e.getKeyChar()) >= 0 && Character.getNumericValue(e.getKeyChar()) <= 9) || e.getKeyChar() == '#' || e.getKeyChar() == '*'){
-            c.txf.setText(c.txf.getText()+e.getKeyChar());
+            c.txa.setText(c.txa.getText()+e.getKeyChar());
         }
     }
 

@@ -40,6 +40,6 @@ public class MouseHandler extends MouseAdapter {
         JButton b;
         b = (JButton) e.getSource();
         b.setBackground(Color.ORANGE);
-        c.txf.setText(c.txf.getText()+b.getText());
+        c.txa.setText(c.txa.getText()+b.getText());
     }
 }

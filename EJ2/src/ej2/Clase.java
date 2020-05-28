@@ -15,7 +15,7 @@ import javax.swing.*;
 public class Clase extends JFrame implements ActionListener{
     
     int x=10,y=350;
-    JTextField txf = new JTextField();
+    JTextArea txa = new JTextArea();
     JButton btnreset = new JButton("Reset");
     private ArrayList<Component> comps = new ArrayList<Component>();
     private JMenuBar menu = new JMenuBar();
@@ -34,13 +34,15 @@ public class Clase extends JFrame implements ActionListener{
         btnreset.setLocation(90,5);
         btnreset.addActionListener(this);
         btnreset.setSize(btnreset.getPreferredSize());
-        txf.setColumns(12);
-        txf.setEditable(false);
-        txf.setSize(txf.getPreferredSize());
-        txf.setLocation(10,100);
+        txa.setColumns(12);
+        txa.setRows(15);
+        txa.setEditable(false);
+        txa.setSize(txa.getPreferredSize());
+        txa.setLocation(20,80);
+        txa.setLineWrap(true);
         this.setFocusable(true);
         this.addKeyListener(new KeyboardHandler(this));
-        this.add(txf);
+        this.add(txa);
         this.add(btnreset);
         generarTeclado();
 
@@ -116,14 +118,14 @@ public class Clase extends JFrame implements ActionListener{
             reset();
         }else if(arg0.getSource() == this.grabar){
             try(PrintWriter escritor = new PrintWriter(new FileWriter(archivonum,true))){
-                escritor.append(txf.getText()+"\n");
+                escritor.append(txa.getText()+"\n");
             }catch(IOException | SecurityException e){
                 JOptionPane.showMessageDialog(null,"Error de acceso al archivo!");
             }
         }else if(arg0.getSource() == this.leer){
             if(archivonum.exists()){
                 try (Scanner sc = new Scanner(archivonum)) {
-                    txf.setText(sc.nextLine());
+                    txa.setText(sc.nextLine());
                 } catch (FileNotFoundException | SecurityException e) {
                     JOptionPane.showMessageDialog(null,"Error de acceso al archivo!");
                 }
@@ -138,7 +140,7 @@ public class Clase extends JFrame implements ActionListener{
     }
 
     private void reset() {
-        this.txf.setText("");
+        this.txa.setText("");
         for (Component component : this.comps) {
             component.setBackground(null);
         }
