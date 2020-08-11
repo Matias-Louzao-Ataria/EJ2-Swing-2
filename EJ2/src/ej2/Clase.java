@@ -125,7 +125,9 @@ public class Clase extends JFrame implements ActionListener{
         }else if(arg0.getSource() == this.leer){
             if(archivonum.exists()){
                 try (Scanner sc = new Scanner(archivonum)) {
-                    txa.setText(sc.nextLine());
+                    while(sc.hasNextLine()){
+                        txa.setText(sc.nextLine());
+                    }
                 } catch (FileNotFoundException | SecurityException e) {
                     JOptionPane.showMessageDialog(null,"Error de acceso al archivo!");
                 }
